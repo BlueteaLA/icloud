@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/icloud.min.css">
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-controller="mc">
+    <div class="icloud">
+        <div class="left">
+            <div class="title">
+                <div class="logo">iCloud</div>
+                <div class="add" ng-click="add()">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="list">
+                <ul>
+                    <li ng-repeat="v in todo track by $index" id="{{v.id}}" ng-click="change($index)" ng-style="{'background-color':$index==index?'#2d2d2b':''}">
+                        <div class="colorpoint">
+                            <span ng-style="{background:v.color}"></span>
+                        </div>
+                        <input type="text" class="tit" ng-model="v.title">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="search">
+                <div class="s-left">
+                    <input type="text" palceholder="搜索所有提醒">
+                </div>
+                <div class="s-right">
+                    <div class="user">用户名</div>
+                    <div class="help">?</div>
+                </div>
+            </div>
+            <div class="title">
+                <div class="main-tit" ng-style="{color:todo[index].color}">
+                    {{todo[index].title}}
+                </div>
+                <div class="options" ng-style="{color:todo[index].color}" ng-click="option(index)">选项</div>
+                <div class="slide" ng-show="f">
+                            <div class="tit">
+                                <input type="text" ng-model="fontVal" ng-style="{'color':fontColor}">
+                            </div>
+                            <div class="colorlist">
+                                <div class="word">
+                                    列表颜色
+                                </div>
+                                <ul class="list">
+                            <li ng-repeat="v in color track by $index" ng-style="{'background-color':v,'border-color':v==fontColor?v:'transparent'}" ng-click="changeColor(v)"></li>
+                        </ul>
+                    </div>
+                    <div class="opt">
+                        <div class="del" ng-click="del(index)">删除</div>
+                        <div class="cancel" ng-click="f=false">取消</div>
+                        <div class="finish" ng-click="finish(index)">完成</div>
+                    </div>
+                </div>
+            </div>
+            <div class="done">
+                <div class="done-word" ng-click="flag=!flag">
+                    <div class="sjx"></div>
+                    <div class="words">已完成：{{num}}项</div>
+                </div>
+                <ul ng-show="flag">
+                    <div class="time">日期</div>
+                    <li ng-repeat="v in todo[index].list|filter:done track by $index">
+                        <div class="colorpoint">
+                            <span ng-style="{'background-color':todo[index].color,'border-color':todo[index].color}" ng-click="changeStatus(v,false)"></span>
+                        </div>
+                        <input type="text" class="con" ng-model="v.content">
+                    </li>
+                </ul>
+            </div>
+            <div class="doing">
+                <ul>
+                    <div class="kong"></div>
+                    <li ng-repeat="v in todo[index].list|filter:doing track by $index">
+                        <div class="colorpoint">
+                            <span ng-style="{'background-color':'rgba(0,0,0,0)','border-color':todo[index].color}" ng-click="changeStatus(v,true)"></span>
+                        </div>
+                        <input type="text" class="con" ng-model="v.content">
+                    </li>
+                </ul>
+                <div class="new" ng-click="addProject(index)">新项目...</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/icloud.js"></script>
+</body>
+</html>
