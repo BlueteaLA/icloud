@@ -24,7 +24,7 @@ body {
 .icloud {
   height: 100%;
   margin-left: 389px;
-  background: url("images/bg.png") repeat;
+  background: url("../images/bg.png") repeat;
 }
 .icloud .left {
   width: 389px;
