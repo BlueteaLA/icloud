@@ -253,6 +253,43 @@ angular.module("app",[]).controller("mc",function($scope){
         getData();
     },true)
     function getData(){
+        if(JSON.parse(localStorage.getItem("todos")).length==0){
+            var td=[
+                {
+                    id:1,
+                    title:"新列表111",
+                    color:"#b14bc9",
+                    list:[
+                        {
+                            content:"aaaaa",
+                            date:"14444444444444",
+                            done:true
+                        },
+                        {
+                            content:"aaaaa",
+                            date:"14444444444444",
+                            done:true
+                        },
+                        {
+                            content:"aaaaa",
+                            date:"14444444444444",
+                            done:true
+                        },
+                        {
+                            content:"aaaaa",
+                            date:"14444444444444",
+                            done:false
+                        },
+                        {
+                            content:"aaaaa",
+                            date:"14444444444444",
+                            done:false
+                        }
+                    ]
+                }
+            ]
+            saveData(td);
+        }
         return JSON.parse(localStorage.getItem("todos"))||[];
     }
     function saveData(data){
