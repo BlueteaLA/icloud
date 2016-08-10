@@ -165,36 +165,35 @@
 //     }
 // ]
 function getData(){
-    if(JSON.parse(localStorage.getItem("todos"))==null){
-        alert(1);
+    if(JSON.parse(localStorage.getItem("todos"))==null||JSON.parse(localStorage.getItem("todos")).length==0){
         var td=[
             {
                 id:1,
-                title:"新列表111",
+                title:"新列表1",
                 color:"#b14bc9",
                 list:[
                     {
-                        content:"aaaaa",
+                        content:"111",
                         date:"14444444444444",
                         done:true
                     },
                     {
-                        content:"aaaaa",
+                        content:"222",
                         date:"14444444444444",
                         done:true
                     },
                     {
-                        content:"aaaaa",
+                        content:"333",
                         date:"14444444444444",
                         done:true
                     },
                     {
-                        content:"aaaaa",
+                        content:"444",
                         date:"14444444444444",
                         done:false
                     },
                     {
-                        content:"aaaaa",
+                        content:"555",
                         date:"14444444444444",
                         done:false
                     }
