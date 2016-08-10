@@ -164,10 +164,8 @@
 //         ]
 //     }
 // ]
-
 function getData(){
-    alert(JSON.parse(localStorage.getItem("todos")).length);
-    if(JSON.parse(localStorage.getItem("todos")).length==0){
+    if(JSON.parse(localStorage.getItem("todos"))==null){
         alert(1);
         var td=[
             {
