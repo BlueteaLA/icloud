@@ -167,6 +167,7 @@
 function getData(){
     if(!localStorage){
         alert("该浏览器不支持本地存储，因此不支持该应用");
+        return;
     }
     if(JSON.parse(localStorage.getItem("todos"))==null||JSON.parse(localStorage.getItem("todos")).length==0){
         var td=[
