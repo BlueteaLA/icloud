@@ -165,6 +165,9 @@
 //     }
 // ]
 function getData(){
+    if(!localStorage){
+        alert("该浏览器不支持本地存储，因此不支持该应用");
+    }
     if(JSON.parse(localStorage.getItem("todos"))==null||JSON.parse(localStorage.getItem("todos")).length==0){
         var td=[
             {
@@ -288,7 +291,13 @@ angular.module("app",[]).controller("mc",function($scope){
     // 删除
     $scope.del=function (i) {
         $scope.f=false;
-        $scope.todo.splice(i,1)
+        // $scope.todo.splice(i,1);
+        if($scope.todo.length>1){
+            $scope.todo.splice(i,1);
+        }else{
+            alert("您需要至少保留一个项目")
+            return;
+        }
     }
     // 检测todo变化
     $scope.$watch("todo",function(nv,ov){
